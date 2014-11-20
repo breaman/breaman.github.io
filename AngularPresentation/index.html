@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Intro to AngularJS</title>
+    <meta name="description" content="A lightening talk over the features and functionality of AngularJS">
+    <meta name="author" content="Michael Stokesbary">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Intro to AngularJS</h1>
+                <h3>A overview of the features and functionality of AngularJS</h3>
+                <p><small>Created by <a href="http://mike.stokesbary.me">Michael Stokesbary</a></small></p>
+            </section>
+            <section>
+                <h1>What will be covered</h1>
+                <h3>What is Angular?</h3>
+                <h3>What makes up an Angular app?</h3>
+            </section>
+            <section>
+                <section>
+                    <h1>What is Angular?</h1>
+                    <blockquote cite="https://docs.angularjs.org/guide/introduction">
+                        &ldquo;AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template
+                        language and lets you extend HTML's syntax to express your application's components clearly and succinctly.
+                        Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write.
+                        And it all happens within the browser, making it an ideal partner with any server technology.&rdquo;
+                    </blockquote>
+                </section>
+                <section>
+                    <h3>What does this mean?</h3>
+                    <ul>
+                        <li>It's a framework instead of a library</li>
+                        <li>HTML is your template language</li>
+                        <li>It extends the HTML syntax</li>
+                        <li>Provides data binding</li>
+                        <li>Dependency injection is a first class citizen</li>
+                        <li>It is all rendered on the client</li>
+                        <li>And it is much more than what is just loaded in that paragraph...</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h3>What makes up an Angular app?</h3>
+                    <ul>
+                        <li>Directives</li>
+                        <li>Expressions &amp; Filters</li>
+                        <li>Scope</li>
+                        <li>Controllers</li>
+                        <li>Modules</li>
+                        <li>Forms &amp; Form Validation</li>
+                        <li>Routing</li>
+                        <li>Services</li>
+                        <li>...</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Directives</h3>
+                    <ul>
+                        <li>Directives are Angular's way of extending and bending the HTML</li>
+                        <li>Directives allow for Angular's "HTML Compiler" to attache specific behaviors to your application</li>
+                        <li>
+                            Examples
+                            <ul>
+                                <li>ngBind - {{}}</li>
+                                <li>ngApp</li>
+                                <li>ngController</li>
+                                <li>ngClick</li>
+                                <li>ngView</li>
+                                <li>ngRepeat</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Expressions &amp; Filters</h3>
+                    <ul>
+                        <li>
+                            Expressions
+                            <ul>
+                                <li>JavaScript-like code snippets that are used in ngBind or {{}}</li>
+                                <li>More forgiving than JavaScript, won't throw an exception when a value is undefined</li>
+                                <li>Cannot use conditionals, loops, or exceptions</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Filters
+                            <ul>
+                                <li>Used to format an expression for user display</li>
+                                <li>
+                                    Examples
+                                    <ul>
+                                        <li>orderBy</li>
+                                        <li>currency</li>
+                                        <li>date</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Scope</h3>
+                    <ul>
+                        <li>Scope is the glue that ties the data in the controller to the view</li>
+                        <li>A lot of people refer to this as the ViewModel as well</li>
+                        <li>In code, it is referenced as $scope</li>
+                        <li>Access of variables are similar to how a variable scope works in server side code, but with some "gotchas"</li>
+                        <li>Provide APIs ($watch) to observe model mutations</li>
+                        <li>Provide APIs ($apply) to propogate model changes through the system</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Controllers</h3>
+                    <ul>
+                        <li>A JavaScript contructor function that is used to augment the scope</li>
+                        <li>Created each time the controller comes into use</li>
+                        <li>Controllers should be used to set up the initial state and add behavior</li>
+                        <li>
+                            Do not use them for:
+                            <ul>
+                                <li>DOM Manipulation - this should be done using Directives</li>
+                                <li>Format input - Use form controls instead</li>
+                                <li>Filter output - Use filters instead</li>
+                                <li>Share code or state - Use services instead</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Modules</h3>
+                    <ul>
+                        <li>The container for the different parts of the app (controllers, services, directives, etc)</li>
+                        <li>A module is created by using <code>angular.module('myApp', [])</code> - [] are used to inject any modules that your module depends on</li>
+                        <li>A module can be referenced within the app with <code>angular.module('myApp')</code> - notice no []</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Forms &amp; Form Validation</h3>
+                    <ul>
+                        <li>Just like in standard HTML, this is just a way for users to input data</li>
+                        <li>Difference when using AngularJS is the fact you get two way data binding on your form fields</li>
+                        <li>AngularJS also provides validation services</li>
+                        <li>ng-messages and ng-message are two new directives added in AngularJS 1.3 that make form validation easier - requires angular-messages.js</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Forms &amp; Form Validation (cont'd)</h3>
+                    <ul>
+                        <li>
+                            Adds CSS classes to form fields depending on the current state of the field
+                            <ul>
+                                <li>ng-invalid - the model is invalid</li>
+                                <li>ng-valid - the model is valid</li>
+                                <li>ng-pristine - the control hasn't been interacted with yet</li>
+                                <li>ng-dirty - the control has been interacted with</li>
+                                <li>ng-touched - the control has been blurred</li>
+                                <li>ng-untouched - the control hasn't been blurred</li>
+                                <li>ng-pending - any async validators are unfulfilled</li>
+                            </ul>
+                        </li>
+                        <li>The above css classes are also properties on the model where ng- is replaced with $</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Routing</h3>
+                    <ul>
+                        <li>Uses ngView to determine where to place the template</li>
+                        <li>Defined on a the $routeProvider using when and otherwise methods</li>
+                        <li>At a minimum, you need to specify the route and the template</li>
+                        <li>Accessed via #/&lt;route&gt;</li>
+                        <li>Requires that angular-route.js is loaded as well</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Services</h3>
+                    <ul>
+                        <li>Substituable objects that are wired together using dependency injection</li>
+                        <li>Lazily instantiated - will only be instantiated when an application component depends on it</li>
+                        <li>Singletons - each component gets a reference to the single instance generated by the service factory</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>...</h3>
+                    <ul>
+                        <li>Unit Testing</li>
+                        <li>End to End (E2E) Testing</li>
+                        <li>Creating custom directives, services</li>
+                        <li>Animations</li>
+                        <li>Services, Providers, Factories</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <h3>More Information</h3>
+                <p>The <a href="https://docs.angularjs.org/api/" target="_blank">AngularJS</a> documentation</p>
+                <p><a href="https://www.youtube.com/watch?v=i9MHigUZKEM" target="_blank">AngularJS in 60'ish Minutes</a> by Dan Wahlin</p>
+                <p>The <a href="https://docs.angularjs.org/tutorial/index" target="_blank">Official AngularJS Tutorial</a></p>
+                <p><a href="http://www.bing.com/search?q=angularjs" target="_blank">Bin</a><a href="https://www.google.com/?q=angularjs#q=angularjs" target="_blank">gle</a></p>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>
